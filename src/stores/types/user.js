@@ -1,0 +1,4 @@
+export const USER_NAME = 'USER_NAME'
+export const ADD_TO_WISHLIST = 'ADD_TO_WISHLIST'
+export const REMOVE_FROM_WISHLIST = 'REMOVE_FROM_WISHLIST'
+export const GET_BOOKS = 'GET_BOOKS'

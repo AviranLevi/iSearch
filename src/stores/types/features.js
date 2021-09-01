@@ -1,0 +1,3 @@
+export const USER_NAME_SUBMIT = 'USER_NAME_SUBMIT'
+export const IS_LOADING = 'IS_LOADING'
+export const IS_LOADING_MORE = 'IS_LOADING_MORE'
