@@ -4,6 +4,7 @@ const initialState = {
   userNameSubmit: false,
   isLoading: false,
   isLoadingMore: false,
+  toggleDisplayDialog: false,
 }
 
 const reducer = (state = initialState, action) => {
@@ -26,6 +27,11 @@ const reducer = (state = initialState, action) => {
         isLoadingMore: action.payload,
       }
 
+    case types.TOGGLE_DISPLAY_DIALOG:
+      return {
+        ...state,
+        toggleDisplayDialog: action.payload,
+      }
     default:
       return state
   }

@@ -41,20 +41,27 @@ export const getBooks = (value, startIndex) => (dispatch, getState) => {
   if (startIndex === 0) {
     dispatch(isLoading(true))
 
-    googleAPI.getBooks(value, startIndex).then((response) => {
-      const { items, startIndex, totalItems } = response
-      dispatch({ type: types.GET_BOOKS, payload: { items, startIndex, totalItems } })
-      dispatch(isLoading(false))
-    })
+    googleAPI
+      .getBooks(value, startIndex)
+      .then((response) => {
+        const { items, startIndex, totalItems } = response
+
+        dispatch({ type: types.GET_BOOKS, payload: { items, startIndex, totalItems } })
+        dispatch(isLoading(false))
+      })
+      .catch((error) => console.log(error))
   } else {
     dispatch(isLoadingMore(true))
 
-    googleAPI.getBooks(value, startIndex).then((response) => {
-      const { items, startIndex, totalItems } = response
-      const { books } = getState().user
-      dispatch({ type: types.GET_BOOKS, payload: { items: [...books, ...items], startIndex, totalItems } })
-      dispatch(isLoadingMore(false))
-    })
+    googleAPI
+      .getBooks(value, startIndex)
+      .then((response) => {
+        const { items, startIndex, totalItems } = response
+        const { books } = getState().user
+        dispatch({ type: types.GET_BOOKS, payload: { items: [...books, ...items], startIndex, totalItems } })
+        dispatch(isLoadingMore(false))
+      })
+      .catch((error) => console.log(error))
   }
 }
 

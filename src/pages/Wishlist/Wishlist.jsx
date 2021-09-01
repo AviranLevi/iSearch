@@ -5,13 +5,14 @@ import useStyles from './Wishlist.css'
 import { useSelector } from 'react-redux'
 import Book from '../../components/Book'
 import { useHistory } from 'react-router'
+import DialogBox from '../../components/DialogBox'
 
 const Wishlist = () => {
   const classes = useStyles()
   const history = useHistory()
   const { user, features } = useSelector((state) => state)
   const { wishlist } = user
-  const { userNameSubmit } = features
+  const { userNameSubmit, toggleDisplayDialog } = features
 
   useEffect(() => {
     if (!userNameSubmit) {
@@ -32,6 +33,7 @@ const Wishlist = () => {
           )}
         </div>
       </div>
+      {toggleDisplayDialog && <DialogBox />}
     </Page>
   )
 }

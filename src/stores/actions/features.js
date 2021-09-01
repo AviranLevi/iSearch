@@ -14,3 +14,8 @@ export const isLoadingMore = (bool) => ({
   type: types.IS_LOADING_MORE,
   payload: bool,
 })
+
+export const toggleDisplayDialog = (bool) => ({
+  type: types.TOGGLE_DISPLAY_DIALOG,
+  payload: bool,
+})

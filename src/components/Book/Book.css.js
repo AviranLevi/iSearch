@@ -11,11 +11,10 @@ export default createUseStyles((theme) => ({
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
     placeItems: 'center',
-    position: 'relative',
     transition: 'all .2s ease-in-out ',
     opacity: 1,
     animation: 'fadeIn ease-in-out .5s',
-
+    cursor: 'pointer',
     '&:hover': {
       transform: 'scale(1.1)',
     },
@@ -30,7 +29,7 @@ export default createUseStyles((theme) => ({
     fontSize: '.8rem',
     animation: 'fadeIn ease-in-out .5s',
     gridGap: '1rem',
-    gridTemplateRows: '4fr 1fr 3fr',
+    gridTemplateRows: '2fr 1fr',
   },
 
   backgroundOnHover: {

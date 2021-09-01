@@ -9,6 +9,7 @@ import Title from '../../components/Title'
 import * as actions from '../../stores/actions'
 import Spinner from '../../components/Spinner'
 import Book from '../../components/Book'
+import DialogBox from '../../components/DialogBox'
 
 const Search = () => {
   const classes = useStyles()
@@ -18,7 +19,7 @@ const Search = () => {
 
   const { user, features } = useSelector((state) => state)
   const { userName, books, startIndex, totalItems } = user
-  const { isLoading, isLoadingMore } = features
+  const { isLoading, isLoadingMore, toggleDisplayDialog } = features
 
   useEffect(() => {
     if (!userName) {
@@ -59,12 +60,15 @@ const Search = () => {
 
       <div className={classes.books}>
         {!isLoading && books && books.length > 0 && books.map((book) => book.volumeInfo.imageLinks && <Book book={book} />)}
+
         {!isLoading && books && books.length > 0 && !noMoreToLoad && (
           <Button title='Load More' className={classes.loadMoreBtn} onClick={nextPage} />
         )}
       </div>
+
       {(isLoading || isLoadingMore) && <Spinner />}
       {!isLoading && books.length > 0 && <Title className={classes.totalItem} title={`Total Items: ${totalItems}`} fontSize='1rem' />}
+      {toggleDisplayDialog && <DialogBox />}
     </Page>
   )
 }
