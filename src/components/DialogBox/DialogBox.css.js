@@ -2,7 +2,7 @@ import { createUseStyles } from 'react-jss'
 
 export default createUseStyles((theme) => ({
   dialogBox: {
-    position: 'absolute',
+    position: 'fixed',
     top: '0',
     left: '0',
     display: 'grid',
